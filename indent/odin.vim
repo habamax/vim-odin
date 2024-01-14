@@ -10,32 +10,29 @@ if exists("b:did_indent")
 endif
 b:did_indent = 1
 
+b:undo_indent = 'setlocal cindent< cinoptions< cinkeys< indentexpr<'
+
+setlocal cindent
+setlocal cinoptions=L0,m1,(s,j1,J1,l1,+0,#1
+setlocal cinkeys=0{,0},0),0],!^F,:,o,O
+
 setlocal indentexpr=GetOdinIndent(v:lnum)
 
 def GetOdinIndent(lnum: number): number
-    var prev = prevnonblank(lnum - 1)
+    var plnum = prevnonblank(lnum - 1)
 
-    var prevline = getline(prev)
+    var pline = getline(plnum)
     var line = getline(lnum)
 
-    var indent = indent(prev)
+    var indent = indent(plnum)
 
-    if prevline =~ '[({:]\s*$'
-        indent += shiftwidth()
-    elseif line =~ '^\s*}'
-        var ln_start = searchpair('{', '', '}', 'bn')
-        if ln_start != -1
-            indent = indent(ln_start)
+    if line =~ '^\s*#\k\+'
+        if pline =~ '[{:]\s*$'
+            return indent + shiftwidth()
+        else
+            return indent
         endif
-    elseif line =~ '^\s*)'
-        var ln_start = searchpair('(', '', ')', 'bn')
-        if ln_start != -1
-            indent = indent(ln_start)
-        endif
-    elseif (line =~ '^\s*case\(\s\+.\{-}\)\?:\s*$' &&
-            prevline !~ '^\s*case\(\s\+.\{-}\)\?:')
-        indent -= shiftwidth()
     endif
 
-    return indent
+    return cindent(lnum)
 enddef
