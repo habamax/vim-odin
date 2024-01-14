@@ -45,7 +45,11 @@ syntax match odinEscape display contained /\\\([nrt\\'"]\|x\x\{2}\)/
 
 syntax match odinProcedure "\v<\w*>(\s*::\s*proc)@="
 
-syntax match odinTagNote "@\<\w\+\>" display
+syntax match odinAttribute "@\ze\<\w\+\>" display
+syntax region odinAttribute
+      \ matchgroup=odinAttribute
+      \ start="@\ze(" end="\ze)"
+      \ transparent oneline
 
 syntax match odinInteger "\-\?\<\d\+\>" display
 syntax match odinFloat "\-\?\<[0-9][0-9_]*\%(\.[0-9][0-9_]*\)\%([eE][+-]\=[0-9_]\+\)\=" display
@@ -82,7 +86,7 @@ highlight def link odinBlockComment Comment
 
 highlight def link odinTodo Todo
 
-highlight def link odinTagNote Identifier
+highlight def link odinAttribute Statement
 highlight def link odinType Type
 highlight def link odinBool Boolean
 highlight def link odinNull Constant
