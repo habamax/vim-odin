@@ -27,6 +27,7 @@ syntax keyword odinType int complex complex32 complex64 complex128 matrix typeid
 syntax keyword odinType quaternion quaternion64 quaternion128 quaternion256
 syntax keyword odinBool true false
 syntax keyword odinNull nil
+syntax match odinUninitialized '\s\+---\(\s\|$\)'
 
 syntax keyword odinOperator in notin not_in
 syntax match odinOperator "?" display
@@ -85,6 +86,7 @@ highlight def link odinTagNote Identifier
 highlight def link odinType Type
 highlight def link odinBool Boolean
 highlight def link odinNull Constant
+highlight def link odinUninitialized Constant
 highlight def link odinInteger Number
 highlight def link odinFloat Float
 highlight def link odinHex Number
