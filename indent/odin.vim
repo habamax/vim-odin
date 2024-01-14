@@ -32,6 +32,8 @@ def GetOdinIndent(lnum: number): number
         else
             return indent
         endif
+    elseif pline =~ 'case:\s*$'
+        return indent + shiftwidth()
     endif
 
     return cindent(lnum)
