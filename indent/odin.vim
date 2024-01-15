@@ -35,6 +35,8 @@ def GetOdinIndent(lnum: number): number
         endif
     elseif pline =~ 'case:\s*$'
         return indent + shiftwidth()
+    elseif pline =~ '{[^{]*}\s*$' # https://github.com/habamax/vim-odin/issues/2
+        return indent
     endif
 
     return cindent(lnum)
