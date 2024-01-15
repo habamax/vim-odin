@@ -37,6 +37,14 @@ def GetOdinIndent(lnum: number): number
         return indent + shiftwidth()
     elseif pline =~ '{[^{]*}\s*$' # https://github.com/habamax/vim-odin/issues/2
         return indent
+    elseif pline =~ '}\s$' # https://github.com/habamax/vim-odin/issues/3
+        # Find line with opening { and check if there is a label:
+        # If there is, return indent of the closing }
+        silent! $":{plnum}"
+        silent! $"$F}%"
+        if plnum != line('.') && getline('.') =~ '^\s*\k\+:'
+            return indent
+        endif
     endif
 
     return cindent(lnum)
