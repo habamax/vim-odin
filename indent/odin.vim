@@ -70,7 +70,7 @@ def GetOdinIndent(lnum: number): number
     elseif pline =~ ':[:=].*}\s*$'
         indent = pindent
     elseif pline =~ '^\s*}\s*$'
-        if line !~ '^\s*}\s*$'
+        if line !~ '^\s*}\s*$' && line !~ 'case\s*.*:\s*$'
             indent = pindent
         else
             indent = pindent - shiftwidth()
