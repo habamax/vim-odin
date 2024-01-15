@@ -67,6 +67,8 @@ def GetOdinIndent(lnum: number): number
         else
             indent = pindent
         endif
+    elseif pline =~ '^\s*@.*'
+        indent = pindent
     elseif pline =~ ':[:=].*}\s*$'
         indent = pindent
     elseif pline =~ '^\s*}\s*$'
