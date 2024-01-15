@@ -12,7 +12,9 @@ endif
 b:did_ftplugin = 1
 
 b:undo_ftplugin = 'setlocal commentstring<'
+      \ .. '| setlocal comments<'
       \ .. '| setlocal suffixesadd<'
 
 setlocal suffixesadd=.odin
 setlocal commentstring=//%s
+setlocal comments=s1:/*,mb:*,ex:*/,://
