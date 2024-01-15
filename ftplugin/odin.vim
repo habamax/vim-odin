@@ -1,7 +1,7 @@
 vim9script
 
 # Vim filetype plugin file
-# Language: odin
+# Language: Odin
 # Maintainer: Maxim Kim <habamax@gmail.com>
 # Website: https://github.com/habamax/vim-odin
 # Last Change: 2024-01-15
