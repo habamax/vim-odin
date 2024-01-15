@@ -75,7 +75,7 @@ def GetOdinIndent(lnum: number): number
         else
             indent = pindent - shiftwidth()
         endif
-    elseif pline =~ 'case:\s*$' && line !~ '^\s*}\s*$'
+    elseif pline =~ 'case\s*.*:\s*$' && line !~ '^\s*}\s*$'
         indent = pindent + shiftwidth()
     elseif pline =~ '{[^{]*}\s*$' && line !~ '^\s*}\s*$' # https://github.com/habamax/vim-odin/issues/2
         indent = pindent
