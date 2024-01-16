@@ -14,7 +14,7 @@ b:did_indent = 1
 b:undo_indent = 'setlocal cindent< cinoptions< cinkeys< indentexpr<'
 
 setlocal cindent
-setlocal cinoptions=L0,m1,(s,j1,J1,l1,+0,:0,#1
+setlocal cinoptions=L0,m1,(s,j1,J1,l1,+0,:0,#3
 setlocal cinkeys=0{,0},0),0],!^F,:,o,O
 
 setlocal indentexpr=GetOdinIndent(v:lnum)
