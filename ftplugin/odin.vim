@@ -4,7 +4,7 @@ vim9script
 # Language: Odin
 # Maintainer: Maxim Kim <habamax@gmail.com>
 # Website: https://github.com/habamax/vim-odin
-# Last Change: 2024-01-15
+# Last Change: 2024-02-12
 
 if exists("b:did_ftplugin")
     finish
