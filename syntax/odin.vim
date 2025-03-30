@@ -15,12 +15,11 @@ syntax keyword odinKeyword struct enum union const bit_field bit_set
 syntax keyword odinKeyword package proc map import export foreign
 syntax keyword odinKeyword size_of offset_of type_info_of typeid_of type_of align_of
 syntax keyword odinKeyword return defer
-syntax keyword odinKeyword or_return or_else
 syntax keyword odinKeyword inline no_inline
 syntax keyword odinKeyword asm context
 
 syntax keyword odinConditional if when else do for switch case fallthrough
-syntax keyword odinConditional continue or_continue break or_break
+syntax keyword odinConditional continue or_continue break or_break or_return or_else
 syntax keyword odinType string cstring bool b8 b16 b32 b64 rune any rawptr
 syntax keyword odinType f16 f32 f64 f16le f16be f32le f32be f64le f64be
 syntax keyword odinType u8 u16 u32 u64 u128 u16le u32le u64le u128le u16be
