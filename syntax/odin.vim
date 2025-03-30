@@ -1,6 +1,6 @@
 vim9script
 
-# Vim indent plugin file
+# Vim syntax file
 # Language: Odin
 # Maintainer: Maxim Kim <habamax@gmail.com>
 # Website: https://github.com/habamax/vim-odin
