@@ -34,6 +34,26 @@ syntax match odinUninitialized '\s\+---\(\s\|$\)'
 syntax keyword odinOperator in notin not_in
 syntax match odinOperator "?" display
 syntax match odinOperator "->" display
+syntax match odinOperator ":" display
+syntax match odinOperator "=" display
+syntax match odinOperator "{" display
+syntax match odinOperator "}" display
+syntax match odinOperator "(" display
+syntax match odinOperator ")" display
+syntax match odinOperator "<" display
+syntax match odinOperator ">" display
+syntax match odinOperator "\[" display
+syntax match odinOperator "\]" display
+syntax match odinOperator "-" display
+syntax match odinOperator "+" display
+syntax match odinOperator "*" display
+syntax match odinOperator "|" display
+syntax match odinOperator "\." display
+syntax match odinOperator "||" display
+
+syntax match odinCall "\<[A-Z][0-9a-z][0-9a-zA-Z-]*" display
+syntax match odinConstant "\<[_A-Z]*\>" display
+syntax match odinVariable "\.[a-z]\+[0-9a-zA-Z-]*" display
 
 syntax match odinTodo "TODO" contained
 syntax match odinTodo "XXX" contained
@@ -100,5 +120,9 @@ highlight def link odinHex Number
 highlight def link odinOct Number
 highlight def link odinBin Number
 highlight def link odinDoz Number
+
+highlight def link odinCall Function
+highlight def link odinConstant Constant
+highlight def link odinVariable Define
 
 b:current_syntax = "odin"
