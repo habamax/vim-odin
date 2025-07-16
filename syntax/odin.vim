@@ -55,6 +55,7 @@ syntax match odinCall "\<[A-Z][0-9a-z][0-9a-zA-Z-]*" display
 syntax match odinConstant "\<[_A-Z]*\>" display
 syntax match odinProcedure "\v<\w*>(\s*::\s*proc)@="
 syntax match odinVariable "\.[a-z]\+[0-9a-zA-Z-]*" display
+syntax match odinStruct "^[A-Z][0-9a-z-]1*[0-9a-zA-Z-_]*" display
 
 syntax match odinTodo "TODO" contained
 syntax match odinTodo "XXX" contained
@@ -84,7 +85,6 @@ syntax match odinDeref "\^" display
 
 syntax match odinPointer "\w*\^\w*" display
 syntax match odinPointer "&\w*" display
-highlight def link odinPointer Special
 syntax match odinOperator "&&" display
 syntax match odinOperator "!" display
 syntax match odinOperator "," display
@@ -130,5 +130,7 @@ highlight def link odinDoz Number
 highlight def link odinCall Function
 highlight def link odinConstant Constant
 highlight def link odinVariable Define
+highlight def link odinPointer Special
+highlight def link odinStruct Structure
 
 b:current_syntax = "odin"
