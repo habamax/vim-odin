@@ -67,14 +67,14 @@ def GetOdinIndent(lnum: number): number
         else
             indent = pindent
         endif
-    elseif pline =~ 'switch\s.*{\s*$'
+    elseif pline =~ '\<switch\>\s.*{\s*$'
         indent = pindent
-    elseif pline =~ 'case\s*.*,\s*\(//.*\)\?$' # https://github.com/habamax/vim-odin/issues/8
-        indent = pindent + matchstr(pline, 'case\s*')->strcharlen()
-    elseif line =~ '^\s*case\s\+.*,\s*$'
+    elseif pline =~ '\<case\>\s*.*,\s*\(//.*\)\?$' # https://github.com/habamax/vim-odin/issues/8
+        indent = pindent + matchstr(pline, '\<case\s*')->strcharlen()
+    elseif line =~ '^\s*case\>\s\+.*,\s*$'
         indent = pindent - shiftwidth()
-    elseif pline =~ 'case\s*.*:\s*\(//.*\)\?$'
-        if line !~ '^\s*}\s*$' && line !~ '^\s*case[[:space:]:]'
+    elseif pline =~ '\<case\>\s*.*:\s*\(//.*\)\?$'
+        if line !~ '^\s*}\s*$' && line !~ '^\s*case\>[[:space:]:]'
             indent = pindent + shiftwidth()
         endif
     elseif pline =~ '^\s*@.*' && line !~ '^\s*}'
@@ -82,7 +82,7 @@ def GetOdinIndent(lnum: number): number
     elseif pline =~ ':[:=].*}\s*$'
         indent = pindent
     elseif pline =~ '^\s*}\s*$'
-        if line !~ '^\s*}' && line !~ 'case\s*.*:\s*$'
+        if line !~ '^\s*}' && line !~ '\<case\>\s*.*:\s*$'
             indent = pindent
         else
             indent = pindent - shiftwidth()
@@ -96,7 +96,7 @@ def GetOdinIndent(lnum: number): number
             if plnum < 1
                 break
             endif
-            if getline(idx) =~ '^\s*case\s.*,\s*$'
+            if getline(idx) =~ '^\s*case\>\s.*,\s*$'
                 indent = indent(idx) + shiftwidth()
                 break
             endif
