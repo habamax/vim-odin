@@ -34,6 +34,28 @@ syntax match odinUninitialized '\s\+---\(\s\|$\)'
 syntax keyword odinOperator in notin not_in
 syntax match odinOperator "?" display
 syntax match odinOperator "->" display
+syntax match odinOperator ":" display
+syntax match odinOperator "=" display
+syntax match odinOperator "{" display
+syntax match odinOperator "}" display
+syntax match odinOperator "(" display
+syntax match odinOperator ")" display
+syntax match odinOperator "<" display
+syntax match odinOperator ">" display
+syntax match odinOperator "\[" display
+syntax match odinOperator "\]" display
+syntax match odinOperator "-" display
+syntax match odinOperator "+" display
+syntax match odinOperator "*" display
+syntax match odinOperator "|" display
+syntax match odinOperator "\." display
+syntax match odinOperator "||" display
+
+syntax match odinCall "\<[A-Z][0-9a-z][0-9a-zA-Z-]*" display
+syntax match odinConstant "\<[_A-Z]*\>" display
+syntax match odinProcedure "\v<\w*>(\s*::\s*proc)@="
+syntax match odinVariable "\.[a-z]\+[0-9a-zA-Z-]*" display
+syntax match odinStruct "^[A-Z][0-9a-z-]1*[0-9a-zA-Z-_]*" display
 
 syntax match odinTodo "TODO" contained
 syntax match odinTodo "XXX" contained
@@ -44,8 +66,6 @@ syntax region odinRawString start=+`+ end=+`+
 syntax region odinChar start=+'+ skip=+\\\\\|\\'+ end=+'+
 syntax region odinString start=+"+ skip=+\\\\\|\\'+ end=+"+ contains=odinEscape
 syntax match odinEscape display contained /\\\([nrt\\'"]\|x\x\{2}\)/
-
-syntax match odinProcedure "\v<\w*>(\s*::\s*proc)@="
 
 syntax match odinAttribute "@\ze\<\w\+\>" display
 syntax region odinAttribute
@@ -62,6 +82,12 @@ syntax match odinBin "\v<0[bB][01]+%(_[01]+)*>" display
 
 syntax match odinAddressOf "&" display
 syntax match odinDeref "\^" display
+
+syntax match odinPointer "\w*\^\w*" display
+syntax match odinPointer "&\w*" display
+syntax match odinOperator "&&" display
+syntax match odinOperator "!" display
+syntax match odinOperator "," display
 
 syntax match odinMacro "#\<\w\+\>" display
 
@@ -100,5 +126,11 @@ highlight def link odinHex Number
 highlight def link odinOct Number
 highlight def link odinBin Number
 highlight def link odinDoz Number
+
+highlight def link odinCall Function
+highlight def link odinConstant Constant
+highlight def link odinVariable Define
+highlight def link odinPointer Special
+highlight def link odinStruct Structure
 
 b:current_syntax = "odin"
