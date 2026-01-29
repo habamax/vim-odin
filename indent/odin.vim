@@ -79,7 +79,7 @@ def GetOdinIndent(lnum: number): number
         endif
     elseif pline =~ '^\s*@.*' && line !~ '^\s*}'
         indent = pindent
-    elseif pline =~ ':[:=].*}\s*$'
+    elseif pline =~ ':[:=].*}\s*$' && line !~ '^\s*}'
         indent = pindent
     elseif pline =~ '^\s*}\s*$'
         if line !~ '^\s*}' && line !~ '\<case\>\s*.*:\s*$'
