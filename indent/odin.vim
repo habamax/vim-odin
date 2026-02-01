@@ -61,7 +61,9 @@ def GetOdinIndent(lnum: number): number
     var indent = cindent(lnum)
     var line = getline(lnum)
 
-    if line =~ '^\s*#\k\+'
+    if line =~ '^\s*#+\k'
+        indent = pindent
+    elseif line =~ '^\s*#\k\+'
         if pline =~ '[{:]\s*$'
             indent = pindent + shiftwidth()
         else
