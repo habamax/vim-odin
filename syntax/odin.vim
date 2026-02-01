@@ -64,6 +64,7 @@ syntax match odinAddressOf "&" display
 syntax match odinDeref "\^" display
 
 syntax match odinMacro "#\<\w\+\>" display
+syntax region odinFeature matchgroup=odinMacro start="#+\<\w\+\>" end="$" oneline display
 
 syntax match odinTemplate "$\<\w\+\>"
 
