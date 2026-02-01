@@ -4,7 +4,7 @@ vim9script
 # Language: Odin
 # Maintainer: Maxim Kim <habamax@gmail.com>
 # Website: https://github.com/habamax/vim-odin
-# Last Change: 2025-10-15
+# Last Change: 2026-02-02
 
 if exists("b:did_indent")
     finish
