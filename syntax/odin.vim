@@ -11,13 +11,14 @@ if exists("b:current_syntax")
 endif
 
 syntax keyword odinKeyword using transmute cast auto_cast distinct where dynamic
-syntax keyword odinKeyword struct enum union bit_field bit_set
+syntax keyword odinKeyword struct enum union matrix bit_field bit_set
 syntax keyword odinKeyword package proc map import foreign typeid
 syntax keyword odinKeyword return defer
-syntax keyword odinKeyword asm context matrix
+syntax keyword odinKeyword asm context
 
 syntax keyword odinConditional if when else do for switch case fallthrough
-syntax keyword odinConditional continue or_continue break or_break or_return or_else
+syntax keyword odinConditional continue break
+syntax keyword odinConditional or_continue or_break or_return or_else
 
 syntax keyword odinType bool b8 b16 b32 b64
 syntax keyword odinType int i8 i16 i32 i64 i128
