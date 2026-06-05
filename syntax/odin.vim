@@ -51,7 +51,7 @@ syntax match odinTodo "HACK" contained
 syntax region odinRawString start=+`+ end=+`+
 syntax region odinChar start=+'+ skip=+\\\\\|\\'+ end=+'+
 syntax region odinString start=+"+ skip=+\\\\\|\\'+ end=+"+ contains=odinEscape
-syntax match odinEscape display contained /\\\([nrt\\'"]\|x\x\{2}\)/
+syntax match odinEscape display contained /\\\([abefnrtv\\'"]\|\o\{3}\|x\x\{2}\|u\x\{4}\|U\x\{8}\)/
 
 syntax match odinProcedure "\v<\w*>(\s*::\s*proc)@="
 
