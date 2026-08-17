@@ -4,7 +4,7 @@ vim9script
 # Language: Odin
 # Maintainer: Maxim Kim <habamax@gmail.com>
 # Website: https://github.com/habamax/vim-odin
-# Last Change: 2026 Aug 16
+# Last Change: 2026 Aug 17
 
 if exists("b:did_indent")
     finish
@@ -112,7 +112,6 @@ def GetOdinIndent(lnum: number): number
     elseif line !~ '^\s*}'
             && line !~ '^\s*case\s\+.\{-}:'
             && pline =~ '^\s*\%(if\|for\).*\s\+do\%(\s\+\|$\)' # https://github.com/habamax/vim-odin/issues/15
-        echow "here"
         indent = pindent
     elseif pline =~ '^\s*}\s*$' # https://github.com/habamax/vim-odin/issues/3
         # Find line with opening { and check if there is a label:
