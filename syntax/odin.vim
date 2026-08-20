@@ -4,7 +4,7 @@ vim9script
 # Language: Odin
 # Maintainer: Maxim Kim <habamax@gmail.com>
 # Website: https://github.com/habamax/vim-odin
-# Last Change: 2026 Aug 20
+# Last Change: 2026 Aug 21
 
 if exists("b:current_syntax")
   finish
@@ -64,7 +64,7 @@ syntax region odinAttributeBraces
       \ contained
 
 syntax match odinInteger "\v<[0-9]+%(_[0-9]+)*>" display
-syntax match odinFloat "\v-?<[0-9]+%(_[0-9]+)*%(\.[0-9]+%(_[0-9]+)*)%([eE][+-]=[0-9]+%(_[0-9]+)*)=" display
+syntax match odinFloat "\v<[0-9]+%(_[0-9]+)*%(\.[0-9]+%(_[0-9]+)*)%([eE][+-]=[0-9]+%(_[0-9]+)*)=" display
 syntax match odinFloat "\v<[0-9]+%(_[0-9]+)*[eE][+-]?[0-9]+%(_[0-9]+)*" display
 syntax match odinHex "\v<0[xX][0-9A-Fa-f]+%(_[0-9A-Fa-f]+)*>" display
 syntax match odinHexFloat "\v<0[hH][0-9A-Fa-f]+%(_[0-9A-Fa-f]+)*>" display
