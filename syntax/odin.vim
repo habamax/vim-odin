@@ -64,7 +64,8 @@ syntax region odinAttributeBraces
       \ contained
 
 syntax match odinInteger "\v<[0-9]+%(_[0-9]+)*>" display
-syntax match odinFloat "\v<[0-9]+%(_[0-9]+)*%(\.|[eE][+-]?)[0-9]+%(_[0-9]+)*" display
+syntax match odinFloat "\v-?<[0-9]+%(_[0-9]+)*%(\.[0-9]+%(_[0-9]+)*)%([eE][+-]=[0-9]+%(_[0-9]+)*)=" display
+syntax match odinFloat "\v<[0-9]+%(_[0-9]+)*[eE][+-]?[0-9]+%(_[0-9]+)*" display
 syntax match odinHex "\v<0[xX][0-9A-Fa-f]+%(_[0-9A-Fa-f]+)*>" display
 syntax match odinHexFloat "\v<0[hH][0-9A-Fa-f]+%(_[0-9A-Fa-f]+)*>" display
 syntax match odinOct "\v<0[oO][0-7]+%(_[0-7]+)*>" display
